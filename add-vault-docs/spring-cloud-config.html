@@ -1314,9 +1314,35 @@ $ vault write secret/myapp foo=myappsbar</code></pre>
 }</code></pre>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_multiple_properties_sources">Multiple Properties Sources</h5>
+<div class="paragraph">
+<p>When using Vault you can provide your applications with multiple properties sources.
+For example, assume you have written data to the following paths in Vault.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">secret/myApp,dev
+secret/myApp
+secret/application,dev
+secret/application</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Properties written to <code>secret/application</code> are available to
+<a href="#_vault_server">all applications using the Config Server</a>.  An
+application with the name <code>myApp</code> would have any properties
+written to <code>secret/myApp</code> and <code>secret/application</code> available to it.
+When <code>myApp</code> has the <code>dev</code> profile enabled than properties written to
+all of the above paths would be available to it, with properties in
+the first path in the list taking priority over the others.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_sharing_configuration_with_all_applications">Sharing Configuration With All Applications</h4>
+<div class="sect4">
+<h5 id="_file_based_repositories">File Based Repositories</h5>
 <div class="paragraph">
 <p>With file-based (i.e. git, svn and native) repositories, resources
 with file names in <code>application*</code> are shared between all client
@@ -1345,6 +1371,24 @@ part of the server.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_vault_server">Vault Server</h5>
+<div class="paragraph">
+<p>When using Vault as a backend you can share configuration with
+all applications by placing configuration in
+<code>html5/application</code>.  For example, if you run this Vault command</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">$ vault write secret/application foo=bar baz=bam</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All applications using the config server will have the properties
+<code>foo</code> and <code>baz</code> available to them.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2223,7 +2267,7 @@ String name = "World";</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-07-15 13:05:46 EDT
+Last updated 2016-07-19 10:22:47 EDT
 </div>
 </div>
 </body>
