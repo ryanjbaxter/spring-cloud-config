@@ -47,6 +47,7 @@
 		<module>spring-cloud-starter-config</module>
 		<module>spring-cloud-config-client-tls-tests</module>
 		<module>docs</module>
+		<module>spring-cloud-config-server-mcp</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

@@ -406,6 +406,13 @@ public class NativeEnvironmentRepository implements EnvironmentRepository, Searc
 		this.order = order;
 	}
 
+	@Override
+	public String toString() {
+		return "NativeEnvironmentRepository{" + "defaultLabel='" + defaultLabel + '\'' + ", searchLocations="
+				+ Arrays.toString(searchLocations) + ", failOnError=" + failOnError + ", addLabelLocations="
+				+ addLabelLocations + ", version='" + version + '\'' + '}';
+	}
+
 	private final class PropertySourceConfigData {
 
 		private final ConfigDataLocation location;
