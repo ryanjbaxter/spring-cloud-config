@@ -9,7 +9,7 @@
 	<artifactId>spring-cloud-config-server-mcp</artifactId>
 	<name>spring-cloud-config-server-mco</name>
 	<properties>
-		<spring-ai.version>1.0.0-M8</spring-ai.version>
+		<spring-ai.version>1.0.0</spring-ai.version>
 	</properties>
 	<dependencies>
 		<dependency>
